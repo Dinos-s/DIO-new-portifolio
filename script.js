@@ -1,4 +1,4 @@
-const tema = document.querySelector('.tema');
+const tema = document.getElementById('tema');
 const root = document.documentElement;
 
 function mudarTema() {

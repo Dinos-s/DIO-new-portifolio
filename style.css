@@ -38,7 +38,15 @@
 }
 
 html[data-theme='light'] .brand__logo {
+    filter: invert(0);
+}
+
+html[data-theme='dark'] .brand__logo {
     filter: invert(1);
+
+}
+html[data-theme='light'] .technologies__logo {
+    filter: invert(0);
 }
 
 body {
@@ -68,6 +76,12 @@ b {
 h1 {
     font-size: 2.5rem;
     font-weight: 200;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 h1, h2, h3 {
@@ -176,9 +190,11 @@ p {
     width: 100%;
     background: transparent;
     border-radius: 3.125rem;
+    border: none;
     padding: 0.875rem 1.5rem;
     transition: ease-in-out .3s;
     cursor: pointer;
+    color: var(--primary-color);
 }
 
 .btn:hover {
@@ -199,11 +215,14 @@ p {
     border: 1px solid var(--primary-color);
 }
 
+main, .projetos {
+    padding: 2.5rem 1rem;
+}
+
 main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 2.5rem 1rem;
 }
 
 .main__content1 {
@@ -220,10 +239,10 @@ main {
 .technologies {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
     gap: 1.25rem;
-    padding: 6.25rem 1rem 2rem 1rem;
+    padding: 6.25rem 1rem 2rem;
     background-color: var(--secondary-bg-color);
     margin-top: -5.5rem;
 }
@@ -235,8 +254,7 @@ main {
 
 .technologies__list {
     display: flex;
-    flex-flow:row wrap;
-    justify-content: space-between;
+    flex-flow: row wrap;
     gap: .5rem;
 }
 
@@ -254,6 +272,76 @@ main {
 
 .technologies__logo {
     height: 2.4rem;
+}
+
+.projetos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.projetos__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.projetos__card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card__cover {
+    width: 100%;
+    border-radius: .5rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.card__title {
+    font-size: 1.5rem;
+}
+
+.card__description {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.card__list {
+    margin-left: 1.25rem;
+}
+
+.card__item{
+    list-style: disc;
+}
+
+.card__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.card__body .technologies__item {
+    width: 4rem;
+    height: 4rem;
+}
+
+.card__body .technologies__logo {
+    height: 2rem;
+}
+
+.projetos .btn {
+    width: auto;
+    margin: auto;
 }
 
 footer {
@@ -291,7 +379,12 @@ footer p {
         font-size: 5rem;
     }
 
-    main {
+    h2 {
+        font-size: 3rem;
+        letter-spacing: 0.4rem;
+    }
+
+    main, .projetos {
         padding: 8rem 6rem 6.25rem 6rem;
     }
 
@@ -301,8 +394,8 @@ footer p {
         align-items: flex-start;
     }
 
-    .tecnologies {
-        padding: 6.25rem 1rem 2rem 1rem;
+    .technologies {
+        padding: 6.25rem 6rem 2rem 6rem;
         margin-top: -6rem;
     }
 
@@ -311,7 +404,26 @@ footer p {
     }
 }
 
+@media (min-width: 992px) {
+    .projetos__card {
+        flex-direction: row;
+    }
+
+    .projetos__card.card--reverse {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .card__cover {
+        width: 55%;
+    }
+}
+
 @media (min-width: 1200px) {
+    h2 {
+        font-size: 5rem;
+    }
+
     main {
         padding: 12rem 6rem 2rem;
     }
@@ -340,6 +452,26 @@ footer p {
         height: 6rem;
     }
 
+    .projetos__card {
+        flex-direction: row;
+    }
+
+    .card__cover {
+        width: 50%;
+    }
+
+    .card__title {
+        font-size: 3.25rem;
+    }
+
+    .card__description, .card__item {
+        font-size: 1.15rem;
+    }
+
+    .card__buttons .btn {
+        width: auto;
+    }
+
     p, span, li {
         font-size: 1.15rem;
     }
@@ -366,7 +498,7 @@ footer p {
         padding: 12rem 15rem 2rem;
     }
 
-    .technologies, .projects, .about {
+    .technologies, .projetos, .about {
         padding: 10rem 15rem 4rem;
     }
 }
